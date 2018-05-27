@@ -1,0 +1,47 @@
+.modifyPwd  .show .changeLine{
+	margin-bottom: 10px;
+}
+.modifyPwd .show p{
+	height: 35px;
+	line-height: 35px;
+}
+.modifyPwd .show span{
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+	height: 35px;
+	line-height: 35px;
+}
+.modifyPwd  .show input{
+	padding: 2px 5px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	outline: none;
+}
+.modifyPwd  .show .queryBtn{
+	display: inline-block;
+	padding: 5px 20px;
+	border-radius: 10px;
+	background-color: #5cb85c;
+	border: none;
+	color: #fff;
+}
+.modifyPwd  .show .canselBtn{
+	display: inline-block;
+	margin-left: 10px;
+	padding: 5px 20px;
+	border-radius: 10px;
+	background-color: #f90;
+	border: none;
+	color: #fff;
+}
+.modifyPwd .tip{
+	color: #999;
+}
+
+/*手机端*/
+@media only screen and (max-width: 540px){
+.modifyPwd  .show .changeLine{
+	margin-bottom: 5px;
+}
+}

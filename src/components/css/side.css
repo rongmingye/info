@@ -1,0 +1,41 @@
+.side p{
+	width: 100%;
+	line-height: 30px;
+}
+.side .logout{
+	color: #f90;
+}
+.side .modifyPwd{
+	margin-left: 20px;
+	color: #f90;
+}
+
+@media only screen and (max-width: 768px){
+.side p{
+	width: 100%;
+	line-height: 25px;
+}
+.side p span{
+	display: block;
+}
+.side .modifyPwd{
+	margin-left: 0;
+}
+}
+@media only screen and (max-width: 540px){
+.side p{
+	width: 100%;
+	line-height: 22px;
+}
+.side p span{
+	display: inline-block;
+}
+.side .logout{
+	color: #f90;
+}
+.side .modifyPwd{
+	margin-left: 20px;
+	color: #f90;
+}
+
+}
