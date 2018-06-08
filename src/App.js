@@ -9,6 +9,11 @@ import Follow from './pages/Follow';
 import Revise from './pages/Revise';
 import ModifyPwd from './pages/ModifyPwd';
 
+import Recruit from './pages/Recruit';
+import PublicRecruit from './pages/PublicRecruit';
+
+import './pages/css/page.css';
+
 class App extends Component {
 
   render() {
@@ -21,7 +26,10 @@ class App extends Component {
                     <Route path='/student' component={Student} />
                     <Route path='/follow' component={Follow} />
                     <Route path='/revise' component={Revise} />
-                    <Route path='/modifyPwd' component={ModifyPwd} />      
+                    <Route path='/modifyPwd' component={ModifyPwd} />
+
+                    <Route path='/recruit' component={Recruit} />
+                    <Route path='/publicRecruit' component={PublicRecruit} />        
                 </Switch>
             </BrowserRouter>
         </div>

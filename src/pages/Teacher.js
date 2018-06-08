@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import $ from 'jquery';
-import 'jquery.cookie';
 
 import Title from '../components/Title';
 import Side from '../components/Side';
@@ -10,31 +9,25 @@ import { getStudentsInfo }  from "../reducers/action";
 import { getTargetStudentInfo }  from "../reducers/action";
 import { Link }  from "react-router-dom";
 
-
-import './css/page.css';
 import './css/teacher.css';
 
 class Teacher extends React.Component{
 
+	// 获取sessionStorage数据
 	constructor(){
 		super();
+		var myStorage = window.sessionStorage;
 		this.state = {
-			teacherName: null,
-			userType: null,
+			teacherName: myStorage.getItem("username"),
+			userType: myStorage.getItem("userType"),
 		}
 	}
 
-	//获取history.location的state数据
+	// 判断有没有登陆
 	componentWillMount(){
-		var isLogin = $.cookie("isLogin");
-		var locationState = this.props.history.location.state;
-		if(!isLogin || !locationState){
+		var isLogin = window.sessionStorage.getItem("isLogin");
+		if(!isLogin){
 			this.props.history.replace("/"); // 没有登陆过就返回login页面
-		}else{
-			this.setState({
-				teacherName: locationState.teacherName,
-				userType: locationState.userType,
-			});
 		}
 	}
 
@@ -69,39 +62,37 @@ class Teacher extends React.Component{
 	render(){
 		var items = this.props.studentsInfo; // 学生们的信息
 		var studentsName = items.map((item, i)=>{
-			let count = 0;
-	
-	     	if(item.teacher_name){ count++; }
-			if(item.teacher_tel){ count++; }
-			if(item.practice_company){ count++; }
-			if(item.post){ count++; }
-			if(item.practice_time){ count++; }
-			if(item.practice_long){ count++; }
-			if(item.practice_type){ count++; }
-			if(item.relation_name){ count++; }
-			if(item.relation_tel){ count++; }
-			if(item.arrange){ count++; }
-			if(item.company_taken){ count++; }
-			if(item.tenBreak){ count++; }
-			if(item.sixteenBreak){ count++; }
+				let count = 0;
+		
+		     	if(item.teacher_name){ count++; }
+				if(item.teacher_tel){ count++; }
+				if(item.practice_company){ count++; }
+				if(item.post){ count++; }
+				if(item.practice_time){ count++; }
+				if(item.practice_long){ count++; }
+				if(item.practice_type){ count++; }
+				if(item.relation_name){ count++; }
+				if(item.relation_tel){ count++; }
+				if(item.arrange){ count++; }
+				if(item.company_taken){ count++; }
+				if(item.tenBreak){ count++; }
+				if(item.sixteenBreak){ count++; }
 
-			let progress = {
-				width: parseInt(count/13*100, 10)+"%",
-			}
+				let progress = {
+					width: parseInt(count/13*100, 10)+"%",
+				}
 
-			return <Link to={{
-							pathname: "/follow",
-							state: { teacherName: this.state.teacherName,
-								 userType:this.state.userType,
-								 studentName: item.student_name}
-						}} key={i}>
-						<div className="lineRow" onClick={()=>{this.handleClick(item);}} > 
-							<span>{item.student_name} </span>
-							<div className="progress">
-								<div className="bar" style={progress}>{progress.width}</div>
+				return <Link to={{
+								pathname: "/follow",
+								state: { studentName: item.student_name}
+							}} key={i}>
+							<div className="lineRow" onClick={()=>{this.handleClick(item);}} > 
+								<span>{item.student_name} </span>
+								<div className="progress">
+									<div className="bar" style={progress}>{progress.width}</div>
+								</div>
 							</div>
-						</div>
-					</Link>;
+						</Link>;
 		});
 
 		return (
@@ -109,8 +100,7 @@ class Teacher extends React.Component{
 			    <Title />
 				<div className="main clearfix">
 					<div className="side f-left">
-						<Side username={this.state.teacherName}
-						 userType={this.state.userType} /> 
+						<Side /> 
 					</div>
 					<div className="show f-right">
 				 		<div>

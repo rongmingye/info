@@ -1,7 +1,5 @@
 import React from "react";
-import $ from 'jquery';
-import 'jquery.cookie';
-
+import  $ from "jquery"
 import './css/login.css';
 
 class Login extends React.Component{
@@ -16,8 +14,7 @@ class Login extends React.Component{
 
 	// 登陆处理
 	// 根据userType跳转到student/teacher页面
-	// 保存uesrType到store
-	// 保存teacher_name/student_name到store
+	// 保存uesrType username isLogin到sessionStorage
 	loginHandle(username, pwd){
 		$.ajax({
 			url: "/login",
@@ -27,17 +24,17 @@ class Login extends React.Component{
 			dataType: "text",
 			success: function(result){
 				if(result === "success"){
-					$.cookie("isLogin", true);
+					var myStorage = window.sessionStorage;
+					myStorage.setItem("isLogin", true);
 					if(this.state.userType === "student"){
-						this.props.history.push("/student", {
-							studentName:username,
-							userType:this.state.userType,
-						}); 
+						myStorage.setItem("username", username);
+						myStorage.setItem("userType", "student");
+						this.props.history.push("/student"); 
+					
 					}else if(this.state.userType === "teacher"){
-						this.props.history.push("/teacher", {
-							teacherName:username,
-							userType:this.state.userType,
-						}); 
+						myStorage.setItem("username", username);
+						myStorage.setItem("userType", "teacher");
+						this.props.history.push("/teacher");
 					}
 				}else if(result==="fail"){
 					alert("密码错误");
@@ -72,7 +69,7 @@ class Login extends React.Component{
 			      	<p>
 			      		<span></span>
 			      		<input type="radio" name="userType" value="teacher" onChange={this.handleChange} /> 老师
-			      		<input type="radio" name="userType" value="student" onChange={this.handleChange} /> 学生
+			      		<input type="radio" name="userType" value="student" checked onChange={this.handleChange} /> 学生
 			      	</p>
 			  		<p> 
 			  			<span></span>

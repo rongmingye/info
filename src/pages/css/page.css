@@ -135,3 +135,31 @@
 	line-height: 30px;
 }
 }
+
+/*--------------- 样式 ------------*/
+.queryBtn{
+	background-color: #5cb85c;
+	display: inline-block;
+	padding: 5px 20px;
+
+	text-align: center;
+	border-radius: 10px;
+	border: none;
+	color: #fff;
+	border: 0;
+}
+.canselBtn{
+	background-color: #f90;
+	display: inline-block;
+	padding: 5px 20px;
+	margin-left: 10px;
+
+	text-align: center;
+	border-radius: 10px;
+	border: none;
+	color: #fff;
+	border: 0;
+}
+.tip{
+	color: #999;
+}

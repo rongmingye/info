@@ -3,37 +3,29 @@ import { connect } from "react-redux";
 import { getStudentInfo }  from "../reducers/action";
 import { Link }  from "react-router-dom";
 import $ from 'jquery';
-import 'jquery.cookie';
 
 import Title from '../components/Title';
 import Side from '../components/Side';
 import Foot from '../components/Foot';
 
-import './css/page.css';
 import './css/student.css';
 
 class Student extends React.Component{
 
 	constructor(){
 		super();
+		var myStorage = window.sessionStorage;
 		this.state = {
-			username: null,
-			userType: null,
+			studentName: myStorage.getItem("username"),
+			userType: myStorage.getItem("userType"),
 		}
 	}
 
-	// 获取history.location的state数据
+	// 判断有没有登陆
 	componentWillMount(){
-		var isLogin = $.cookie("isLogin");
-		var locationState = this.props.history.location.state;
-		if(!isLogin || !locationState){
+		var isLogin = window.sessionStorage.getItem("isLogin");
+		if(!isLogin){
 			this.props.history.replace("/"); // 没有登陆过就返回login页面
-		}else{
-			this.setState({
-				studentName: locationState.studentName,
-				userType: locationState.userType,
-				login: locationState.login
-			});
 		}
 	}
 
@@ -42,7 +34,7 @@ class Student extends React.Component{
 		this.getStudentInfo();
 	}
 
-	// 获取该学生的信息, 根据store.studentName
+	// 获取该学生的信息, this.state.studentName
 	// 保存该学生信息到store.studentInfo
 	getStudentInfo(){
 		$.ajax({
@@ -66,18 +58,11 @@ class Student extends React.Component{
 			    <Title />
 				<div className="main clearfix">
 					<div className="side f-left">
-						<Side username={this.state.studentName}
-						 userType={ this.state.userType } /> 
+						<Side /> 
 					</div>
 					<div className="show f-right">
 					
-						<Link to={{
-								pathname: "/revise",
-								state: { 
-									studentName: this.state.studentName,
-									userType:this.state.userType, 
-								}
-							}} className="reviseBtn">填写/修改</Link>
+						<Link to="/revise" className="reviseBtn">填写/修改</Link>
 
 						<div>
 							<p><span>指导老师：</span> {item.teacher_name}</p>

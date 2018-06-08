@@ -2,36 +2,31 @@ import React from "react";
 import { connect } from "react-redux";
 import { getStudentInfo }  from "../reducers/action";
 import $ from 'jquery';
-import 'jquery.cookie';
 
 import Title from '../components/Title';
 import Side from '../components/Side';
 import Foot from '../components/Foot';
 
-import './css/page.css';
 import './css/revise.css';
 
 class Revise extends React.Component{
 
+	// 获取sessionStorage数据
 	constructor(){
 		super();
+		var myStorage = window.sessionStorage;
 		this.state = {
-			studentName: null,
-			userType: null,
+			studentName: myStorage.getItem("username"),
+			userType: myStorage.getItem("userType"),
 		}
 	}
 
-	// 获取history.location的state数据
+	
+	// 判断有没有登陆
 	componentWillMount(){
-		var isLogin = $.cookie("isLogin");
-		var locationState = this.props.history.location.state;
-		if(!isLogin || !locationState){
-			this.props.history.replace("/"); // 没有登陆过就返回login页面
-		}else{
-			this.setState({
-				studentName: locationState.studentName,
-				userType: locationState.userType,
-			});
+		var isLogin = window.sessionStorage.getItem("isLogin");
+		if(!isLogin){
+			this.props.history.replace("/"); 
 		}
 	}
 
@@ -95,6 +90,7 @@ class Revise extends React.Component{
 		}
 	}
 
+	// 返回学生信息界面
 	canselRevise(){
 		this.props.history.goBack();
 	}
@@ -106,10 +102,10 @@ class Revise extends React.Component{
 			content = 
 				<div>
 					<div className="changeLine">
-						<input type="button" value="确定修改" 
-						onClick={()=> {this.handleSubmit() }} className="queryBtn" />
-						<input type="button" value="取消" 
-						onClick={()=>{ this.canselRevise() }} className="canselBtn" />
+						<button type="button"
+						onClick={()=> {this.handleSubmit() }} className="queryBtn" >确定修改</button>
+						<button type="button"
+						onClick={()=>{ this.canselRevise() }} className="canselBtn" >取消</button>
 					</div>
 					<p className="tip">注: 带'*'为必需要填写的</p>
 					<p>
@@ -184,8 +180,7 @@ class Revise extends React.Component{
 			    <Title />
 				<div className="main clearfix">
 					<div className="side f-left">
-						<Side username={this.state.studentName}
-						 	userType={ this.state.userType } /> 
+						<Side /> 
 					</div>
 					<div className="show f-right">
 							{content}

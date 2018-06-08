@@ -9,6 +9,11 @@
 	margin-left: 20px;
 	color: #f90;
 }
+.side .recruitDiv a{
+	line-height: 30px;
+	display: block;
+	color: #fff;
+}
 
 @media only screen and (max-width: 768px){
 .side p{
@@ -23,7 +28,7 @@
 }
 }
 @media only screen and (max-width: 540px){
-.side p{
+.side p, .side .recruitDiv a{
 	width: 100%;
 	line-height: 22px;
 }
@@ -36,6 +41,15 @@
 .side .modifyPwd{
 	margin-left: 20px;
 	color: #f90;
+}
+
+.side .userInfo{
+	display: inline-block;
+	width: 50%;
+}
+.side .recruitDiv{
+	display: inline-block;
+	width: 50%;
 }
 
 }

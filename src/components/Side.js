@@ -6,9 +6,17 @@ import $ from 'jquery';
 
 import './css/side.css';
 
-
 // 用户信息
 class Side extends React.Component{
+
+	constructor(){
+		super();
+		var myStorage = window.sessionStorage;
+		this.state = {
+			username: myStorage.getItem("username"),
+			userType: myStorage.getItem("userType"),
+		}
+	}
 
 	componentDidMount(){
 		this.getSideInfoHandle();
@@ -21,8 +29,8 @@ class Side extends React.Component{
 			type: "post",
 			contentType: "application/json;charser=utf-8",
 			data: JSON.stringify({
-				'userType': this.props.userType,
-				'username': this.props.username
+				'userType': this.state.userType,
+				'username': this.state.username
 			}),
 			success: function(result){
 				this.props.getSideInfo(result);
@@ -36,8 +44,9 @@ class Side extends React.Component{
 	render(){
 		var item = this.props.sideInfo;
 		var sideDiv; // 显示侧边的内容的容器
-		if(this.props.userType === "student"){
-			sideDiv = <div>
+		var recruitDiv;
+		if(this.state.userType === "student"){
+			sideDiv = <div className="userInfo">
 						<p><span>学号：</span> {item.student_id}</p>
 						<p><span>姓名：</span> {item.student_name}</p>
 						<p><span>专业：</span> {item.profession}</p>
@@ -48,14 +57,16 @@ class Side extends React.Component{
 							<Link to={{
 								pathname: "/modifyPwd",
 								state: { 
-									 userType: this.props.userType,
-									 username: this.props.username,
+									 userType: this.state.userType,
+									 username: this.state.username,
 								}
 							}} className="modifyPwd"><span>修改密码</span></Link>
 						</p>
 					</div>;
-		}else if(this.props.userType === "teacher"){
-			sideDiv = <div>
+			recruitDiv = <div className="recruitDiv"><Link to="/recruit">查看招聘信息</Link></div>;
+
+		}else if(this.state.userType === "teacher"){
+			sideDiv = <div className="userInfo">
 						<p><span>工号：</span> {item.teacher_id}</p>
 						<p><span>老师：</span> {item.teacher_name}</p>
 						<p><span>电话：</span> {item.teacher_tel}</p>
@@ -64,17 +75,22 @@ class Side extends React.Component{
 							<Link to={{
 								pathname: "/modifyPwd",
 								state: { 
-									 userType: this.props.userType,
-									 username: this.props.username,
+									 userType: this.state.userType,
+									 username: this.state.username,
 								}
 							}} className="modifyPwd"><span>修改密码</span></Link>
 						</p>
 					</div>;
+			recruitDiv = <div className="recruitDiv">
+							<Link to="/recruit">查看招聘信息</Link>
+							<Link to="/publicRecruit">发布招聘信息</Link>
+						</div>
 		}
 
 		return (
 			<div>
 				{sideDiv}
+				{recruitDiv}
 			</div>
 		);
 	}

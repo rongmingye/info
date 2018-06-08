@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import $ from 'jquery';
-import 'jquery.cookie';
 
 import Title from '../components/Title';
 import Side from '../components/Side';
 import Foot from '../components/Foot';
 import { getTargetStudentInfo }  from "../reducers/action";
-import './css/page.css';
+
 import './css/follow.css';
 
 class Follow extends React.Component{
@@ -15,22 +14,18 @@ class Follow extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			teacherName: null,
-			userType: null,
 			studentName: null,
 		}
 	}
 
-	// 获取history.location的state数据
+	// 判断有没有登陆
 	componentWillMount(){
-		var isLogin = $.cookie("isLogin");
+		var isLogin = window.sessionStorage.getItem("isLogin");
 		var locationState = this.props.history.location.state;
-		if(!isLogin || !locationState){
+		if(!isLogin){
 			this.props.history.replace("/"); // 没有登陆过就返回login页面
 		}else{
 			this.setState({
-				teacherName: locationState.teacherName,
-				userType: locationState.userType,
 				studentName: locationState.studentName,
 			});
 		}
@@ -70,8 +65,7 @@ class Follow extends React.Component{
 			    <Title />
 				<div className="main clearfix">
 					<div className="side f-left">
-						<Side username={this.state.teacherName}
-						 	userType={ this.state.userType } /> 
+						<Side /> 
 					</div>
 					<div className="show f-right">
 

@@ -144,6 +144,50 @@ function routes(app){
 		}
 	});
 
+	// 发布招聘信息
+	app.post('/publicRecruit', urlencodedParser, function(req, res){
+		console.log("publicRecruit");
+		console.log(req.body);
+		var request = req.body;
+		var sql = "insert into recruit(company, address, post, required, salary, eatLive, relation) values('"
+			+request.company+"','"+request.address+"','"+request.post+"','"+request.required
+			+"','"+request.salary+"','"+request.eatLive+"','"+request.relation+"')";
+console.log(sql);
+	    query(sql, function(err, result){
+			if(err) {
+				console.log(err.message);
+				return;
+			}
+			console.log("publicRecruit success");
+			res.redirect("/recruit");
+	        res.end();  	
+	    });
+	});
+
+	// 查询招聘信息
+	app.post('/getRecruits', urlencodedParser, function(req, res){
+		console.log("getRecruits");
+		var sql = "select * from recruit";
+		
+	    query(sql, function(err, result){
+			if(err) {
+				console.log(err.message);
+				return;
+			}
+
+			// result.map(function(item, index){
+			// 	console.log(item);
+			// 	item.required = item.required.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			// 	item.required = item.required.replace(/ /g, "&nbsp;").replace(/\r\n/g, "<br />");
+			// 	item.required = item.required.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+			// });
+
+			console.log("getRecruits success");
+			res.send(result);
+	        res.end();  	
+	    });
+	});
+
 }
 
 
@@ -157,9 +201,9 @@ function getNowFormatTime(){
         var month = date.getMonth() + 1;
         var strDate = date.getDate();
         
-        var hour = date.getHours().toString();
-        var minute = date.getMinutes().toString();
-        var second = date.getSeconds().toString();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
 
         if (month >= 1 && month <= 9) {
             month = "0" + month;

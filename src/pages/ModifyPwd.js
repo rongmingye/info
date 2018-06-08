@@ -6,7 +6,6 @@ import Title from '../components/Title';
 import Side from '../components/Side';
 import Foot from '../components/Foot';
 
-import './css/page.css';
 import './css/modifyPwd.css';
 
 class ModifyPwd extends React.Component{

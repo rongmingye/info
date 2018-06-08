@@ -1,0 +1,22 @@
+.oneRecruit{
+	margin: 10px 0 0 0;
+}
+.oneRecruit h3{
+
+}
+.oneRecruitContent{
+	padding-left: 10px;
+	line-height: 20px;
+}
+.oneRecruitContent div{
+	width: 100%;
+	margin:  0;
+}
+.oneRecruit span{
+	display: inline-block;
+}
+.oneRecruit p{
+	vertical-align: top;
+	display: inline-block;
+	width: 80%;
+}

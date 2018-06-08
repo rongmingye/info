@@ -10,26 +10,8 @@
 	border-radius: 5px;
 	outline: none;
 }
-.revise .show .queryBtn{
-	display: inline-block;
-	padding: 5px 20px;
-	border-radius: 10px;
-	background-color: #5cb85c;
-	border: none;
-	color: #fff;
-}
-.revise .show .canselBtn{
-	display: inline-block;
-	margin-left: 10px;
-	padding: 5px 20px;
-	border-radius: 10px;
-	background-color: #f90;
-	border: none;
-	color: #fff;
-}
-.revise .tip{
-	color: #999;
-}
+
+
 
 @media only screen and (max-width: 540px){
 .revise .show p{
