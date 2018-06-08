@@ -10,25 +10,21 @@ import './css/modifyPwd.css';
 
 class ModifyPwd extends React.Component{
 
+	// 获取sessionStorage数据
 	constructor(){
 		super();
+		var myStorage = window.sessionStorage;
 		this.state = {
-			username: null,
-			userType: null,
+			username: myStorage.getItem("username"),
+			userType: myStorage.getItem("userType"),
 		}
 	}
 
 	// 获取history.location的state数据
 	componentWillMount(){
-		var isLogin = $.cookie("isLogin");
-		var locationState = this.props.history.location.state;
-		if(!isLogin || !locationState ){
+		var isLogin = window.sessionStorage.getItem("isLogin");
+		if(!isLogin){
 			this.props.history.replace("/"); // 没有登陆过就返回login页面
-		}else{
-			this.setState({
-				username: locationState.username,
-				userType: locationState.userType,
-			});
 		}
 	}
 
@@ -71,15 +67,9 @@ class ModifyPwd extends React.Component{
 					if(result==="success"){
 						alert("修改密码成功");
 						if(this.state.userType==="student"){
-							this.props.history.push("/student", {
-								studentName:this.state.username,
-								userType:this.state.userType,
-							}); 
+							this.props.history.push("/student"); 
 						}else if(this.state.userType==="teacher"){
-							this.props.history.push("/teacher", {
-								teacherName:this.state.username,
-								userType:this.state.userType,
-							}); 
+							this.props.history.push("/teacher"); 
 						}
 					}else if(result === "fail"){
 						alert("旧密码错误，请重新输入！");
@@ -104,8 +94,7 @@ class ModifyPwd extends React.Component{
 			    <Title />
 				<div className="main clearfix">
 					<div className="side f-left">
-						<Side username={this.state.username}
-						 	userType={ this.state.userType }  /> 
+						<Side /> 
 					</div>
 					<div className="show f-right">
 
