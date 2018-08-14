@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>校园新闻</title>
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/plugins/jq-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- build:css css/common.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hAdmin-extension.css">
+    <!-- endbuild -->
+</head>
+<body>
+	<div class="m-t-md m-r-md m-l-md">
+		<button class="btn btn-info" data-toggle="modal" data-target="#publicQuestionModal" id="publicBtn">发布话题</button>
+		<div class="m-t-md" >
+			<h4>话题列表:</h4>
+			<div id="box" class="m-t-sm list-group"></div>
+		</div>
+
+	</div>
+
+<!-- 发布问题-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="publicQuestionModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">发布新话题</h4>
+            </div>
+            <div class="modal-body">
+                 <!-- form -->
+                <form id="publicQuestionForm" onsubmit="return false" method="POST">
+                    <div class="form-group">
+                        <label class="white-bg main-theme-text col-sm-5 control-label">话题内容：</label>
+                        <textarea rows="4" name="content" id="content" class="form-control" /></textarea> 
+                    </div>
+                    <div class="text-danger m-b-n-md">
+                        <p id="errorMsg"></p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- 绑定到#modal-role.hidden[type="submit"]-->
+                <button class="btn btn-success" id="save" type="button"><span class="fa fa-cloud-upload"></span> 提交 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jq-ui/jquery-ui.min.js"></script>
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+	<!-- build:js js/app.min.js -->
+	<script src="js/route.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/config.js"></script>
+	<!-- endbuild -->
+	<!-- // <script src="js/utils/URandom.js"></script> -->
+	<script src="js/board.js"></script>
+</body>
+</html>

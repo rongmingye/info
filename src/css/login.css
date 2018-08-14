@@ -1,0 +1,140 @@
+html {
+	height: 100%;
+}
+
+body.signin {
+	background: #18c8f6;
+	height: auto;
+	background: url("../images/bg.jpg") no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: rgba(255, 255, 255, .95);
+	
+}
+
+.signinpanel {
+	width: 320px;
+	margin-left: 23%;
+	margin-top: -2%;
+	/*margin: 0 auto 0 auto;*/
+}
+
+.signinpanel .logopanel {
+	float: none;
+	width: auto;
+	padding: 0;
+	background: none;
+}
+
+.signinpanel .signin-info ul {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+}
+
+.signinpanel .form-control {
+	display: block;
+	margin-top: 15px;
+}
+
+.signinpanel .btn {
+	margin-top: 15px;
+}
+
+.signinpanel form {
+	/*margin-left: 30%;*/
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(255, 255, 255, .3);
+	-moz-box-shadow: 0 3px 0 rgba(12, 12, 12, 0.03);
+	-webkit-box-shadow: 0 3px 0 rgba(12, 12, 12, 0.03);
+	box-shadow: 0 3px 0 rgba(12, 12, 12, 0.03);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 30px;
+}
+
+.signup-footer {
+	border-top: solid 0px rgba(255, 255, 255, .3);
+	margin: 10px 0;
+	padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.signinpanel, .signuppanel {
+		margin: 0 auto;
+		width: 420px !important;
+		padding: 20px;
+	}
+	.signinpanel form {
+		margin-top: 20px;
+	}
+	.signup-footer {
+		margin-bottom: 10px;
+	}
+	.signuppanel .form-control {
+		margin-bottom: 10px;
+	}
+	.signup-footer .pull-left, .signup-footer .pull-right {
+		float: none !important;
+		text-align: center;
+	}
+	.signinpanel .signin-info ul {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.signinpanel, .signuppanel {
+		margin: 0 20px;
+		width: auto;
+	}
+}
+
+.vertical-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login_logo{
+	height:53px;
+	width:160px;
+	margin:0px auto;
+	background: url("../images/login_logo.png");
+}
+.top_logo {
+	bottom: 80%;
+	left: -150%;
+	height:60px;
+	width:160px;
+	position: absolute;
+	text-align: center;
+	color: #ffffff;
+  	transform: translate(-50%, -50%);
+}
+
+.foot_logo {
+	bottom: 2%;
+	left: 50%;
+	height:60px;
+	width:140px;
+	padding-bottom: 8px;
+	position: absolute;
+	text-align: center;
+	color: #ffffff;
+  	transform: translate(-50%, -50%);
+}
+
+.foot_txt_box {
+	bottom: 0;
+	left: 0;
+	padding-bottom: 10px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	color: #FFFFFF;
+}

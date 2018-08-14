@@ -1,0 +1,237 @@
+/**
+ * hAdmin-v4.0扩展及问题修复
+ */
+
+.no-radius {
+	border-radius: 0 !important;
+}
+
+.padder-h {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.vertical-center{
+	vertical-align: center;
+}
+
+/*单行文本溢出显示省略号*/
+.text-ellipsis {
+	width: auto;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+/*修复下拉菜单文字显示不完全*/
+select,
+select:focus,
+select.form-control {
+	height: 30px;
+	line-height: 30px;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+/*覆盖firefox对fieldset设置的默认样式*/
+@-moz-document url-prefix() {
+	fieldset {display: table-cell;}
+}
+
+/*覆盖chrome表单自动补全的黄色背景*/
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+	box-shadow: 0 0 0px 1000px #ffffff inset;
+}
+
+/*修复横向表单按钮向下偏移*/
+.form-inline .form-group button {
+	display: block;
+	width: 100%;
+}
+
+/*
+主页出现滚动条
+<!--右侧部分开始-->底部有1px边框
+#page-wrapper > :first-child {border-bottom:0px;}
+*/
+
+/*
+.table-responsive下的表格可能显示不完全
+!!此样式最好写在出现问题的页面
+.table-responsive {
+	overflow-x: visible;
+}
+*/
+
+/* 自定义文本域
+<textarea class="form-control" wrap="virtual" name="additional" id="additional"></textarea>
+textarea {
+	padding: 0;
+	margin: 0;
+	height: 10em;
+	resize: vertical;
+}
+*/
+
+
+
+.main-theme-text {
+	color: #118bd8 !important;
+}
+
+.text-green {
+	color: #3dbd7d !important;
+}
+
+.text-light-green {
+	color: #76D0A3 !important;
+}
+
+.main-theme-bg {
+	background-color: #00a65a !important;
+}
+
+.agile-list li.green-element {
+	border-left: 3px solid #00a65a;
+}
+
+.btn-light-green {
+	color: #ffffff !important;
+	background-color: #76D0A3;
+	border-color: #76D0A3;
+}
+.modal-ibox-content {
+	background-color: #f8fafb;
+	color: inherit;
+	padding: 15px 20px 20px 20px;
+	border-color: #e7eaec;
+	-webkit-border-image: none;
+	-o-border-image: none;
+	border-image: none;
+	border-style: solid solid none;
+	border-width: 1px 0px;
+}
+
+ul.sortable-list.agile-list li{
+	border-top: 1px solid transparent;
+	border-right: 1px solid transparent;
+	border-bottom: 1px dashed #e7eaec;
+	padding-top: 0;
+	padding-right: 0;
+}
+ul.sortable-list.agile-list li,
+ul.sortable-list.agile-list li:hover {
+	background-color: #fff;
+}
+
+.statistics-lg {
+	height:600px;
+}
+
+.statistics-mdl {
+	height:450px;
+}
+
+.statistics-md {
+	height:400px;
+}
+.statistics-mds {
+	height:300px;
+}
+.statistics-sml {
+	height:250px;
+}
+
+.statistics-sm {
+	height:200px;
+}
+
+.x-scroll {
+	overflow-x: auto;
+}
+
+.no-r-padding {
+	padding-right: 0px !important;
+}
+
+.no-l-padding {
+	padding-left: 0px !important;
+}
+
+
+/*标记表单必填项*/
+form label > .required {
+	display: inline-block;
+	font-size: 13px;
+	height: 13px;
+	color: #ff0000;
+}
+.required {
+	display: inline-block;
+	font-size: 13px;
+	height: 13px;
+	color: #ff0000;
+}
+
+.navbar-header-sm {
+	width: 5%;
+}
+
+/*年|季|月|周|日选择框*/
+.timepicker {
+	width: 100%;
+	max-width: 200px;
+}
+.timepicker select,
+.timepicker input.date {
+	width: 100%;
+	max-width: 149px;
+}
+.input-group.group,
+.input-group.group .input-group-btn,
+.input-group.group .input-group-btn select {
+	/*width: auto;*/
+	max-width: 149px;
+}
+.timepicker .dropdown-toggle {
+    box-shadow: none;
+}
+.timepicker .form-control.mode {display: none;}
+.timepicker .form-control.mode.active {display: inline-block !important;}
+.timepicker.multiple {
+	width: 100%;
+	max-width: 349px;
+}
+
+/*包裹树结构的容器*/
+.tree-container {
+    height: 480px;
+    overflow-y: auto;
+}
+
+/*自定义bootstrap下拉菜单标题*/
+.dropdown-header {
+	color: #ccc;
+}
+
+/*节能诊断*/
+.border-radius{
+	height: 150px;
+	width: 150px;
+	border-radius:75px 75px 75px 75px;
+	background-color: #00C1B3;
+	color: #ffffff;
+}
+.border-radius-center{
+	width:150px;
+	height: 150px;
+	vertical-align:middle !important;
+}
+
+/*firefox禁用选取*/
+body { 
+	/*-moz-user-select: none; */
+} 

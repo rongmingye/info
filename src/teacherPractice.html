@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生们实习信息</title>
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/plugins/jq-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- build:css css/common.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hAdmin-extension.css">
+    <!-- endbuild -->
+</head>
+<body>
+	<div class="m-t-md m-r-md m-l-md">
+        <h3 class="m-t-sm">学生名单:</h3>
+		<div id="studentsBox" class="m-t-sm list-group"></div>
+	</div>
+
+	<!-- 该学生的实习信息-->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="detailPracticeModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">实习信息</h4>
+                </div>
+                <div class="modal-body">
+                    <p><span>学生姓名：</span><span id="student_name"></span></p>
+                    <p><span>学生班级：</span><span id="student_class"></span></p>
+                    <p><span>学生电话：</span><span id="student_tel"></span></p>
+                    <p><span>指导老师：</span><span id="teacher_name"></span></p>
+                    <p><span>指导老师电话：</span><span id="teacher_tel"></span></p>
+                    <p><span>实习公司：</span><span id="practice_company"></span></p>
+                    <p><span>实习岗位：</span><span id="post"></span></p>
+                    <p><span>实习时间：</span><span id="practice_time"></span></p>
+                    <p><span>实习多久：</span><span id="practice_long"></span></p>
+                    <p><span>安排形式：</span><span id="practice_type"></span></p>
+                    
+                    <p><span>实习公司联系人：</span> <span id="relation_name"></span></p>
+                    <p><span>实习公司联系人电话：</span><span id="relation_tel"></span></p>
+                    <p><span>安排形式：</span><span id="arrange"></span></p>
+                    
+                    <p><span>企业是否录用：</span><span id="company_taken"></span></p>
+                    <p><span>是否突破《规定》第十条要求：</span><span id="tenBreak"></span></p>
+                    <p><span>是否突破《规定》第十六条要求，突破内容：</span><span id="sixteenBreak"></span></p>
+                    <p><span>工作变动记录：</span><span id="changed"></span></p>
+                    <p><span>备注：</span><span id="remark"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jq-ui/jquery-ui.min.js"></script>
+	<!-- build:js js/app.min.js -->
+	<script src="js/route.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/config.js"></script>
+	<!-- endbuild -->
+	<!-- // <script src="js/utils/URandom.js"></script> -->
+	<script src="js/teacherPractice.js"></script>
+</body>
+</html>

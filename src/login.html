@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <title>登陆</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <style>
+        .formpadding {
+            padding-bottom: 20px !important;
+        }
+        .loginlogo {
+            width: 100%;
+            text-align: center;
+        }
+        .title {
+            width: 100%;
+            text-align: center;
+            color: #000000;
+        }
+        .login-a {
+            color: #118BD8;
+        }
+        .hr {
+            border-top: 1px solid #118BD8;
+        }
+        .forgotpsdfont {
+            color: #000000;
+        }
+        .padding-left {
+            padding-left: 0 !important;
+        }
+
+        .padding-right {
+            padding-right: 0 !important;
+        }
+
+        .mindpsd {
+            padding-left: 0px !important;
+        }
+        .error {
+            color: red;
+        }
+        .inoc-color {
+            color: #00a65a;
+        }
+        .shadow {
+            /*-webkit-box-shadow: 1px 1px 3px #ccc;*/
+            /*-moz-box-shadow: 1px 1px 3px #ccc;*/
+            /*box-shadow: 1px 1px 3px #ccc;*/
+            text-shadow: 1px 1px 3px #333;
+        }
+    </style>
+
+</head>
+<body class="signin" oncontextmenu="self.event.returnValue=false">
+<div class="vertical-align m-t-md m-b-n-md m-l-md">
+    <!-- <img src="images/jadLogo.png" alt="信息" style="width: 263px;height: 38px;"> -->
+</div>
+<div class="signinpanel vertical-center">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+            <form class="formpadding" id="loginform" onsubmit="return false" method="POST">
+                <div class="loginlogo h3 no-margins">
+                    <span class="text-left title">&nbsp;高本协同管理系统</span>
+                </div>
+                <p class="text-left login-a h5">登录</p>
+                <hr class="no-margins no-padding hr">
+                <input type="text" class="form-control uname" placeholder="用户名"
+                       name="account" id="username" autofocus maxlength="11"/>
+                <input type="password" class="form-control pword" placeholder="密码"
+                       name="password" id="password" autocomplete="off" value=""/>
+                
+                <div class="m-t-sm">
+                    <label class="radio-inline" style="color: #000">
+                        <input type="radio" name="userType"  value="teacher" >老师
+                    </label>
+                    <label class="radio-inline" style="color: #000">
+                        <input type="radio" name="userType" value="student" checked>学生
+                    </label>
+                </div>
+                
+                <button class="btn btn-info btn-block" type="submit"><i class="fa fa-sign-in inoc"></i>&nbsp;登录</button>
+
+                <div class="signup-footer">
+                    <p class="text-danger text-center no-margins font-bold" id="error"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<!-- 全局js -->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/plugins/validate/jquery.validate.min.js"></script>
+<script src="js/plugins/iCheck/icheck.min.js"></script>
+<script src="js/plugins/validate/messages_zh.min.js"></script>
+<script src="js/plugins/md5/md5.js"></script>
+<!-- build:js js/app.min.js -->
+<script src="js/route.js"></script>
+<script src="js/site.js"></script>
+<script src="js/config.js"></script>
+<!-- endbuild -->
+<script src="js/login.js"></script>
+</html>

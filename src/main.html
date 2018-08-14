@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<title>高本协同管理系统</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<!-- build:css css/style.css -->
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.inoc {
+			color: #118BD8;
+		}
+
+		.nav-header-padding-bottom {
+			padding-bottom: 12px;
+		}
+
+		.sidebar-collapse {
+			background-color: #118BD8;
+		}
+
+		.liline {
+			width: 100%;
+			height: 1px;
+			overflow: hidden;
+			font-size: 0;
+			background-color: #cacaca;
+		}
+		.navbar_page_title {
+			padding: 6px 0 2px 0;
+			margin: 14px 5px 5px 15px;
+			font-size: 14px;
+			float: left;
+		}
+		@media only screen and (max-width: 540px){
+		    .navbar-top-links .dropdown-alerts {
+		        margin-left: -85px;
+		    }
+		}
+	</style>
+</head>
+<body oncontextmenu="self.event.returnValue=false" ondragstart="return false" class="fixed-sidebar full-height-layout gray-bg">
+	<div id="wrapper">
+		<!-- 左侧导航栏开始 -->
+		<nav id="nav" class="navbar-default navbar-static-side" role="navigation">
+			<div class="nav-close"><i class="fa fa-times-circle"></i></div>
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+					<li class="nav-header nav-header-padding-bottom">
+						<div class="dropdown profile-element">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+								<span class="clear">
+									<span class="block  m-t-xs" style="font-size:18px;">
+										<strong class="font-blod">高本协同管理系统</strong>
+									</span>
+								</span>
+							</a>
+						</div>
+						<div class="logo-element">系统</div>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-institution"></i>
+							<span class="nav-label">实习</span>
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li id="linkStudentPractice"><a href="#/studentPractice.html" class="J_menuItem">实习信息</a></li>
+							<li id="linkTeacherPractice"><a href="#/teacherPractice.html" class="J_menuItem">学生们的实习信息</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-handshake-o"></i>
+							<span class="nav-label">招聘</span>
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li id="linkPublicEmploy"><a href="#/publicEmploy.html" class="J_menuItem">发布招聘招聘</a></li>
+							<li><a href="#/employ.html" class="J_menuItem">查看招聘</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-quora"></i>
+							<span class="nav-label">论坛</span>
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li><a href="#/board.html" class="J_menuItem">所有话题</a></li>
+							<!-- <li><a href="#" class="J_menuItem">发布问题</a></li> -->
+							<!-- <li><a href="#" class="J_menuItem">发布评论</a></li> -->
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-mortar-board"></i>
+							<span class="nav-label">校园新闻</span>
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li><a href="#/news.html" class="J_menuItem">校园风采</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-vcard"></i>
+							<span class="nav-label">班级名单</span>
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li><a href="#/classStudents.html?className=20141271" class="J_menuItem">本科20141271</a></li>
+							<li><a href="#/classStudents.html?className=20141272" class="J_menuItem">本科20141272</a></li>
+							<li><a href="#/classStudents.html?className=20151271" class="J_menuItem">本科20151271</a></li>
+							<li><a href="#/classStudents.html?className=20151272" class="J_menuItem">本科20151272</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 左侧导航结束 -->
+		<!-- 右侧部分开始 -->
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row" style="margin-bottom: -3px">
+				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+					<div class="navbar-header-sm">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-success" href="#">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
+					<div class="navbar_page_title">
+						<span id="navbar_nav_text" class="font-bold" style="color:#3e495f;"></span>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+								<i class="fa fa-user inoc"></i><span id="navbar-username"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-alerts" id="userInfoDropdown">
+								<li>
+									<a href="javascript:;" id="user">
+										<i class="fa fa-user fa-fw"></i> 用户名
+										<span class="pull-right small" id="student_name"></span>
+									</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-phone"></i> 电话
+										<span class="pull-right small" id="student_tel"></span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-user"></i> 学号
+										<span class="pull-right small" id="student_id"></span>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-user"></i> 专业
+										<span class="pull-right small" id="profession"></span>
+									</a>
+								</li>
+									<li>
+									<a href="javascript:;">
+										<i class="fa fa-user"></i> 学校
+										<span class="pull-right small" id="school"></span>
+									</a>
+								</li>
+									<li>
+									<a href="javascript:;">
+										<i class="fa fa-user"></i> 年级
+										<span class="pull-right small" id="grade"></span>
+									</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="text-center link-block">
+										<a class="J_menuItem" href="#/repassword.html" id="linkToRepass">
+											<strong><i class="fa fa-expeditedssl"></i> 修改密码 </strong> <i class="fa fa-angle-double-right inoc"></i>
+										</a>
+										<a data-toggle="modal" data-target="#changeInfoModal">
+											<strong><i class="fa fa-expeditedssl"></i> 修改电话 </strong> <i class="fa fa-angle-double-right inoc"></i>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a id="exit" href="javascript:;">
+								<i class="fa fa-sign-out inoc"></i> <span class="nav-label">退出</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="row J_mainContent" id="content-main">
+				<iframe src="about:blank" frameborder="0" width="100%" height="100%" id="J_iframe" name="J_iframe" seamless>
+				</iframe>
+			</div>
+		</div>
+		<!-- 右侧部分结束 -->
+	</div>
+
+	<!-- 修改用户信息 -->
+	<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="changeInfoModal">
+	    <div class="modal-dialog modal-lg" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	                <h4 class="modal-title">用户信息</h4>
+	            </div>
+	            <div class="modal-body">
+	                 <!-- form -->
+	                <form id="changeInfoForm" onsubmit="return false" method="POST">
+	                    <div class="form-group">
+	                        <label class="white-bg main-theme-text col-sm-5 control-label">电话</label>
+	                        <input type="text" name="userTel" id="userTel" class="form-control" />
+	                    </div>
+	                    <div class="text-danger m-b-n-md">
+	                        <p id="errorMsg"></p>
+	                    </div>
+	                </form>
+	            </div>
+	            <div class="modal-footer">
+	                <!-- 绑定到#modal-role.hidden[type="submit"]-->
+	                <button class="btn btn-success" id="save" type="button"><span class="fa fa-cloud-upload"></span> 提交 </button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- 全局js -->
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<!-- build:js js/app.js -->
+	<script src="js/route.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/config.js"></script>
+	<!-- enbuild -->
+	<script src="js/hAdmin.js"></script>
+	<!-- build -->
+	<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生实习信息</title>
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/plugins/jq-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- build:css css/common.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hAdmin-extension.css">
+    <!-- endbuild -->
+</head>
+<body>
+	<div class="m-t-md m-r-md m-l-md">
+		<button class="btn btn-info m-b-sm" data-toggle="modal" data-target="#practiceModal" id="changeBtn">修改实习信息</button>
+		<div id="box" class="m-t-sm"></div>
+	</div>
+
+	<!-- 发布/修改实习信息-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="practiceModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">修改实习信息</h4>
+            </div>
+            <div class="modal-body">
+                 <!-- form -->
+                <form id="upLoadForm" onsubmit="return false" method="POST">
+                    <div class="form-group">
+                        <label class="white-bg main-theme-text col-sm-5 control-label">指导老师：</label>
+                        <input type="text" name="teacher_name" id="teacher_name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">指导老师电话：</label>
+                        <input type="text" name="teacher_tel" id="teacher_tel" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习公司：</label>
+                        <input type="text" name="practice_company" id="practice_company" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习岗位：</label>
+                        <input type="text" name="post" id="post" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习时间：</label>
+                        <input type="text" name="practice_time" id="practice_time" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习多久：</label>
+                        <input type="text" name="practice_long" id="practice_long" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">安排形式：</label>
+                        <input type="text" name="practice_type" id="practice_type" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习公司联系人：</label>
+                        <input type="text" name="relation_name" id="relation_name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">实习公司联系人电话：</label>
+                        <input type="text" name="relation_tel" id="relation_tel" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">安排形式：</label>
+                        <input type="text" name="arrange" id="arrange" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">企业是否录用：</label>
+                        <input type="text" name="company_taken" id="company_taken" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">是否突破《规定》第十条要求：</label>
+                        <input type="text" name="tenBreak" id="tenBreak" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">是否突破《规定》第十六条要求，突破内容：</label>
+                        <input type="text" name="sixteenBreak" id="sixteenBreak" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">工作变动记录：</label>
+                        <input type="text" name="changed" id="changed" class="form-control" />
+                    </div>
+                    <div class="form-group">
+						<label class="white-bg main-theme-text col-sm-5 control-label">备注：</label>
+                        <input type="text" name="remark" id="remark" class="form-control" />
+                    </div>
+                    <div class="text-danger m-b-n-md">
+                        <p id="errorMsg"></p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- 绑定到#modal-role.hidden[type="submit"]-->
+                <button class="btn btn-success" id="save" type="button"><span class="fa fa-cloud-upload"></span> 提交 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jq-ui/jquery-ui.min.js"></script>
+	<!-- build:js js/app.min.js -->
+	<script src="js/route.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/config.js"></script>
+	<!-- endbuild -->
+	<!-- // <script src="js/utils/URandom.js"></script> -->
+	<script src="js/studentPractice.js"></script>
+</body>
+</html>

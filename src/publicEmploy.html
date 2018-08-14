@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>招聘信息</title>
+	    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/plugins/jq-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- build:css css/common.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<div class="m-t-md m-l-md m-r-md">
+		<div id="employBox">
+			 <!-- form -->
+            <form id="publicEmployForm" onsubmit="return false" method="POST">
+                <div class="form-group">
+                    <label class="white-bg main-theme-text col-sm-2 control-label">*公司：</label>
+                    <input type="text" name="company" id="company" class="form-control" />
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*地址：</label>
+                    <input type="text" name="address" id="address" class="form-control" />
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*职位：</label>
+                    <input type="text" name="post" id="post" class="form-control" />
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*要求：</label>
+                    <textarea class="form-control" rows="4" name="required" id="required" ></textarea>
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*工资：</label>
+                    <input type="text" name="salary" id="salary" class="form-control" />
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*吃住：</label>
+                    <input type="text" name="eatLive" id="eatLive" class="form-control" />
+                </div>
+                <div class="form-group">
+					<label class="white-bg main-theme-text col-sm-2 control-label">*联系人及其电话：</label>
+                    <input type="text" name="relation" id="relation" class="form-control" />
+                </div>
+                <div class="text-danger m-b-n-md">
+                    <p id="errorMsg"></p>
+                </div>
+            </form>
+	        <div class="m-t-md pull-left">
+	            <!-- 绑定到#modal-role.hidden[type="submit"]-->
+	            <button class="btn btn-success" id="save" type="button"><span class="fa fa-cloud-upload"></span> 提交 </button>
+	        </div>
+	   </div>
+		
+	</div>
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jq-ui/jquery-ui.min.js"></script>
+	<script src="js/plugins/validate/jquery.validate.min.js"></script>
+	<!-- build:js js/app.min.js -->
+	<script src="js/route.js"></script>
+	<script src="js/site.js"></script>
+	<script src="js/config.js"></script>
+	<!-- endbuild -->
+	<!-- // <script src="js/utils/URandom.js"></script> -->
+	<script src="js/publicEmploy.js"></script>
+</body>
+</html>
