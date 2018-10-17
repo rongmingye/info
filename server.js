@@ -1,3 +1,5 @@
+// 项目创建时间 2018/05/15
+
 var express = require('express'); // 快速构建服务器
 var app = express();
 var cors = require('cors');
